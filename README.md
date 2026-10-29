@@ -31,7 +31,7 @@ python3 -m http.server 8000
 
 Placeholders are shown on the page in dashed blue `[brackets]`, or marked with `data-todo`.
 
-- [ ] Branch address (mall name, unit number) — `#find-us`
+- [ ] Branch names and addresses (all branches) — `#find-us`
 - [ ] Opening hours — `#find-us`
 - [ ] Phone number — the `tel:` link and the Phone row
 - [ ] Facebook page URL — the "Message us on Facebook" button
