@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Universal Dental Clinic — Dentistry without the dread</title>
+  <meta name="description" content="Universal Dental Clinic: gentle, unhurried dental care with every step explained before it happens. Book a check-up, cleaning or treatment.">
+  <meta name="theme-color" content="#0A1A33">
+
+  <!-- Open Graph: swap to absolute URLs once the site is live -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Universal Dental Clinic">
+  <meta property="og:description" content="Dentistry without the dread. Every step explained before it happens.">
+  <meta property="og:image" content="assets/images/treatment-room.webp">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..600&family=Bodoni+Moda:opsz,wght@6..96,400..600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "Dentist", "name": "Universal Dental Clinic", "image": "assets/images/storefront.webp" }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header uses mix-blend-mode: difference so it reads over light and dark sections -->
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Universal Dental Clinic, back to top">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 52V30a14 14 0 0 1 28 0v22" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>
+      <span>Universal Dental Clinic</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#visit">Your visit</a>
+      <a href="#treatments">Treatments</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+    <a class="header-cta" href="#book">Book a visit</a>
+  </header>
+
+  <main id="main">
+
+    <!-- 1. Hero: the headline is the composition; photos sit inside the type -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <h1 class="hero-title" id="hero-title" aria-label="Dentistry without the dread.">
+        <span class="line" aria-hidden="true"><span class="line-inner">Dentistry</span></span>
+        <span class="line line--indent" aria-hidden="true"><span class="line-inner"><span class="pill"><img src="assets/images/treatment-room.webp" width="251" height="314" alt="" fetchpriority="high"></span> without</span></span>
+        <span class="line" aria-hidden="true"><span class="line-inner">the dread.<span class="pill pill--arch"><img src="assets/images/procedure-team.webp" width="506" height="285" alt=""></span></span></span>
+      </h1>
+
+      <div class="hero-foot">
+        <p class="hero-lede">Unhurried check-ups and gentle treatment at Universal Dental Clinic, with every step explained before it happens. Nervous patients very welcome.</p>
+        <p class="hero-meta">Baclaran branch<br>Inside the mall</p>
+        <a class="badge" href="#book" aria-label="Book a visit">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="badge-circle" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+            <text><textPath href="#badge-circle" textLength="462">Book a visit ✦ Book a visit ✦ Book a visit ✦</textPath></text>
+          </svg>
+          <svg class="badge-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 52V30a14 14 0 0 1 28 0v22" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. Manifesto: words brighten as you scroll -->
+    <section class="manifesto" aria-label="Our approach">
+      <div class="manifesto-sticky">
+        <p class="manifesto-text" data-scrub>The chair is often the hardest part of seeing a dentist. So we slow down. We tell you what we’ve found, what we suggest and why, and we only begin when you’re ready.</p>
+      </div>
+    </section>
+
+    <!-- 3. Visit: pinned, scrolls sideways on desktop; stacks on mobile -->
+    <section class="visit" id="visit" aria-labelledby="visit-title" data-hscroll>
+      <div class="visit-sticky">
+        <div class="visit-head">
+          <h2 id="visit-title">Your visit, step by step</h2>
+          <div class="visit-progress" aria-hidden="true"><span data-progress></span></div>
+        </div>
+        <ol class="visit-track" data-track>
+          <li class="panel">
+            <figure class="panel-media"><img src="assets/images/storefront.webp" width="251" height="314" loading="lazy" alt="The Universal Dental Clinic storefront with its illuminated blue sign, inside a mall"></figure>
+            <div class="panel-copy">
+              <span class="panel-num" aria-hidden="true">01</span>
+              <h3>Walk in from the mall</h3>
+              <p>Look for the blue sign. Inside is a bright, quiet lounge, away from the bustle of the corridor, where you can settle before your appointment.</p>
+            </div>
+          </li>
+          <li class="panel">
+            <figure class="panel-media panel-media--wide"><img src="assets/images/dentist-at-work.webp" width="506" height="285" loading="lazy" alt="A dentist in a red uniform and mask working carefully alongside an assistant"></figure>
+            <div class="panel-copy">
+              <span class="panel-num" aria-hidden="true">02</span>
+              <h3>Talk it through first</h3>
+              <p>Your dentist examines your teeth, explains what they’ve found and walks you through the options in plain language. Nothing starts until you’re comfortable with the plan.</p>
+            </div>
+          </li>
+          <li class="panel">
+            <figure class="panel-media panel-media--wide"><img src="assets/images/procedure-team.webp" width="506" height="285" loading="lazy" alt="Two clinicians in full protective gear, face shields and caps during a procedure"></figure>
+            <div class="panel-copy">
+              <span class="panel-num" aria-hidden="true">03</span>
+              <h3>Gentle, careful treatment</h3>
+              <p>Treatment goes at your pace, with protective gear and sterilised instruments for every patient. Raise a hand whenever you need a pause.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 4. Treatments: an index; each row leads to booking. Confirm list with the clinic. -->
+    <section class="treatments" id="treatments" aria-labelledby="treatments-title">
+      <div class="treatments-head">
+        <h2 id="treatments-title">Treatments</h2>
+        <p>From a routine clean to a wisdom tooth, the same calm approach applies. Not sure what you need? Start with a check-up.</p>
+      </div>
+      <ul class="treatment-list">
+        <li><a href="#book"><span class="t-name">Check-ups and cleaning</span><span class="t-desc">A thorough examination and professional clean.</span></a></li>
+        <li><a href="#book"><span class="t-name">Fillings</span><span class="t-desc">Tooth-coloured repairs that blend with your smile.</span></a></li>
+        <li><a href="#book"><span class="t-name">Extractions</span><span class="t-desc">Including wisdom teeth, with clear aftercare advice.</span></a></li>
+        <li><a href="#book"><span class="t-name">Braces</span><span class="t-desc">Straighten crowded or crooked teeth over time.</span></a></li>
+        <li><a href="#book"><span class="t-name">Whitening</span><span class="t-desc">Lift stains safely under a dentist’s supervision.</span></a></li>
+        <li><a href="#book"><span class="t-name">Crowns and dentures</span><span class="t-desc">Restore missing or weakened teeth.</span></a></li>
+      </ul>
+    </section>
+
+    <!-- 5. Reviews: real Google reviews, quoted as written -->
+    <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+      <h2 id="reviews-title" class="visually-hidden">Patient reviews</h2>
+      <figure class="quote quote--hero">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote><p>I was a little nervous before my visit, but the dentist made me feel at ease right away. She has an incredibly gentle touch — I felt absolutely no pain throughout the entire procedure.</p></blockquote>
+        <figcaption><span class="stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span> Danny Malfait, Google review</figcaption>
+      </figure>
+      <div class="reviews-side">
+        <figure class="quote">
+          <blockquote><p>I would like to commend Doc Mj and Anj for the effort and great service during my procedure. They are very accommodating and very efficient. Thank you and more power to Universal Dental Clinic Baclaran branch.</p></blockquote>
+          <figcaption><span class="stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span> Cherry Pie Sindao, Google review</figcaption>
+        </figure>
+        <!--
+          Held back pending confirmation: this review names "Urban Smiles Parqal branch",
+          not Universal Dental Clinic. Re-enable only if it genuinely belongs to this business.
+        <figure class="quote">
+          <blockquote><p>I had a great experience … Doctor Romeo gave me a very good advice regarding the needs of my teeth. The staff were great and the place was really clean.</p></blockquote>
+          <figcaption><span class="stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span> John De Leon, Google review</figcaption>
+        </figure>
+        -->
+        <a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Universal+Dental+Clinic+Baclaran" target="_blank" rel="noopener">Read more reviews on Google<span class="visually-hidden"> (opens in a new tab)</span></a>
+      </div>
+    </section>
+
+    <!-- 6. Booking: marquee, giant call to action, details. [Brackets] = placeholders, see README -->
+    <section class="book" id="book" aria-labelledby="book-title">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Universal Dental Clinic ✦ Baclaran ✦ Gentle care ✦ Every step explained ✦&nbsp;</span>
+          <span>Universal Dental Clinic ✦ Baclaran ✦ Gentle care ✦ Every step explained ✦&nbsp;</span>
+        </div>
+      </div>
+
+      <h2 id="book-title" class="visually-hidden">Book your visit</h2>
+      <a class="mega-cta" href="tel:+630000000000" data-todo="phone">
+        <span class="mega-line">Book a</span>
+        <span class="mega-line mega-line--indent">visit<span class="mega-sub">Call the clinic</span></span>
+      </a>
+
+      <div class="book-grid">
+        <dl class="details">
+          <div><dt>Branch</dt><dd>Baclaran<br><span class="placeholder">[Mall name, unit number]</span></dd></div>
+          <div><dt>Opening hours</dt><dd><span class="placeholder">[Days and times]</span></dd></div>
+          <div><dt>Phone</dt><dd><span class="placeholder">[Landline or mobile]</span></dd></div>
+          <div><dt>Elsewhere</dt><dd>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" data-todo="facebook">Message us on Facebook<span class="visually-hidden"> (opens in a new tab)</span></a><br>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Universal+Dental+Clinic+Baclaran" target="_blank" rel="noopener">Directions in Google Maps<span class="visually-hidden"> (opens in a new tab)</span></a>
+          </dd></div>
+        </dl>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span data-year>2026</span> Universal Dental Clinic</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+/* =========================================================
+   Universal Dental Clinic — landing page (v2)
+   Editorial, type-led layout. Photos sit inside the type
+   rather than being stretched, which suits the small sources.
+   ========================================================= */
+
+:root {
+  --paper: #F2F4F7;
+  --paper-2: #E6EAF1;
+  --ink: #0A1A33;
+  --ink-soft: #46546B;
+  --cobalt: #2450F0;
+  --glow: #8FAEFF;
+  --walnut: #6E4630;
+  --line: rgba(10, 26, 51, 0.16);
+  --line-light: rgba(255, 255, 255, 0.18);
+
+  --serif: "Bodoni Moda", "Didot", "Bodoni 72", "Playfair Display", Georgia, serif;
+  --sans: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
+
+  --gutter: clamp(1.1rem, 0.6rem + 2.4vw, 3rem);
+  --section: clamp(5rem, 3rem + 9vw, 11rem);
+
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*, *::before, *::after { box-sizing: inherit; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(4.5rem + env(safe-area-inset-top, 0px)); -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-stretch: 90%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Film grain over everything: adds texture and hides softness in the small photos */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; line-height: 1; letter-spacing: -0.02em; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+
+:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 4px; border-radius: 4px; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem; z-index: 100;
+  padding: .6rem 1rem; background: var(--ink); color: #fff; border-radius: 6px;
+}
+.skip-link:focus { top: calc(1rem + env(safe-area-inset-top, 0px)); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  left: 0; right: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.1rem var(--gutter);
+  color: #fff;
+  mix-blend-mode: difference;     /* inverts against whatever is beneath */
+}
+.brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; font-weight: 500; letter-spacing: .01em; }
+.brand-mark { width: 1.35rem; height: 1.35rem; }
+.site-nav { display: none; gap: 2.25rem; }
+.site-nav a, .header-cta { text-decoration: none; font-weight: 500; }
+.site-nav a:hover, .header-cta:hover { text-decoration: underline; text-underline-offset: .25em; }
+.header-cta { border-bottom: 1.5px solid currentColor; padding-bottom: 2px; }
+.header-cta:hover { text-decoration: none; }
+
+/* ---------- 1. Hero ---------- */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: clamp(6rem, 5rem + 6vh, 9rem) var(--gutter) var(--gutter);
+}
+
+.hero-title {
+  font-size: min(16.5vw, 15rem);
+  line-height: .9;
+  letter-spacing: -0.045em;
+  font-variation-settings: "opsz" 96;
+}
+.line { display: block; overflow: hidden; padding-bottom: .06em; }
+.line-inner { display: inline-block; }
+.line--indent { padding-left: .3em; }
+
+/* Photos set inside the headline */
+.pill {
+  display: inline-block;
+  height: .74em;
+  width: 1.45em;
+  margin-inline: 0 .06em;
+  border-radius: 999px;
+  overflow: hidden;
+  vertical-align: -.02em;
+  background: var(--paper-2);
+}
+.pill--arch { width: .95em; margin-inline: .1em 0; border-radius: 999px 999px .08em .08em; }
+.pill img { width: 100%; height: 100%; object-fit: cover; }
+
+.hero-foot {
+  display: grid;
+  gap: 2rem;
+  align-items: end;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.hero-lede { max-width: 30rem; font-size: 1.125rem; color: var(--ink-soft); }
+.hero-meta { font-size: .95rem; color: var(--ink-soft); }
+
+/* Rotating booking badge */
+.badge {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 8.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--cobalt);
+  color: #fff;
+  text-decoration: none;
+  transition: transform .4s cubic-bezier(.2,.7,.2,1), background-color .3s;
+}
+.badge:hover { transform: scale(1.06); background: var(--ink); }
+.badge > svg:first-child { position: absolute; inset: 0; width: 100%; height: 100%; }
+.badge text { fill: currentColor; font: 500 19px var(--sans); letter-spacing: .05em; }
+.badge-mark { width: 2.1rem; height: 2.1rem; }
+
+/* Page-load reveal: lines rise out of their masks, photos open up */
+.js .line-inner { transform: translateY(105%); }
+.js .pill { width: 0; margin-inline: 0; }
+.is-loaded .line-inner { transform: none; transition: transform 1.1s cubic-bezier(.16,1,.3,1); }
+.is-loaded .line:nth-child(2) .line-inner { transition-delay: .1s; }
+.is-loaded .line:nth-child(3) .line-inner { transition-delay: .2s; }
+.is-loaded .pill { width: 1.45em; margin-inline: 0 .06em; transition: width 1s cubic-bezier(.16,1,.3,1) .65s, margin .9s cubic-bezier(.16,1,.3,1) .65s; }
+.is-loaded .pill--arch { width: .95em; margin-inline: .1em 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .badge > svg:first-child { animation: spin 18s linear infinite; }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- 2. Manifesto (word scrub) ---------- */
+.manifesto { position: relative; padding: var(--section) var(--gutter); }
+.js-motion .manifesto { height: 170vh; padding-block: 0; }
+.js-motion .manifesto-sticky { position: sticky; top: 0; height: 100svh; display: flex; align-items: center; }
+
+.manifesto-text {
+  max-width: 22ch;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 1rem + 4.4vw, 5.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  font-variation-settings: "opsz" 28;
+}
+.manifesto-text .w { opacity: .14; transition: opacity .25s linear; }
+.manifesto-text .w.is-on { opacity: 1; }
+
+/* ---------- 3. Visit (horizontal on desktop) ---------- */
+.visit { background: var(--ink); color: #fff; }
+.visit-sticky { padding: var(--section) var(--gutter); }
+.visit-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.5rem; margin-bottom: 3rem; }
+.visit-head h2 { font-size: clamp(2.4rem, 1.4rem + 4vw, 5rem); max-width: 11ch; }
+.visit-progress { display: none; width: min(18rem, 30vw); height: 2px; background: var(--line-light); }
+.visit-progress span { display: block; height: 100%; width: 100%; background: var(--glow); transform-origin: left; transform: scaleX(0); }
+
+.visit-track { list-style: none; margin: 0; padding: 0; display: grid; gap: 4.5rem; }
+.panel { display: grid; gap: 1.75rem; }
+.panel-media { margin: 0; border-radius: 999px 999px 14px 14px; overflow: hidden; aspect-ratio: 4 / 5; max-width: 22rem; background: #13284B; }
+.panel-media--wide { border-radius: 14px; aspect-ratio: 16 / 10; max-width: 34rem; }
+.panel-media img { width: 100%; height: 100%; object-fit: cover; }
+.panel-num { display: block; font-family: var(--serif); font-size: 1rem; color: var(--glow); margin-bottom: 1rem; letter-spacing: .04em; }
+.panel h3 { font-size: clamp(2rem, 1.3rem + 2.6vw, 3.5rem); line-height: 1.02; margin-bottom: 1.1rem; max-width: 12ch; font-variation-settings: "opsz" 40; }
+.panel p { color: #C3CCDB; max-width: 30rem; }
+
+/* ---------- 4. Treatments index ---------- */
+.treatments { padding: var(--section) var(--gutter); }
+.treatments-head { display: grid; gap: 1.25rem; margin-bottom: 3rem; }
+.treatments-head h2 { font-size: clamp(2.4rem, 1.4rem + 4vw, 5rem); }
+.treatments-head p { color: var(--ink-soft); max-width: 30rem; }
+
+.treatment-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.treatment-list li { border-bottom: 1px solid var(--line); }
+.treatment-list a {
+  position: relative;
+  display: grid;
+  gap: .35rem;
+  padding: 1.4rem .25rem;
+  text-decoration: none;
+  isolation: isolate;
+  overflow: hidden;
+}
+/* Cobalt fill rises on hover/focus */
+.treatment-list a::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background: var(--cobalt);
+  transform: scaleY(0); transform-origin: bottom;
+  transition: transform .45s cubic-bezier(.16,1,.3,1);
+}
+.treatment-list a:hover::before, .treatment-list a:focus-visible::before { transform: scaleY(1); }
+.treatment-list a:hover, .treatment-list a:focus-visible { color: #fff; }
+.t-name {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 1rem + 4vw, 4.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  transition: transform .45s cubic-bezier(.16,1,.3,1);
+}
+.t-desc { color: var(--ink-soft); transition: color .3s; }
+.treatment-list a:hover .t-desc, .treatment-list a:focus-visible .t-desc { color: #DCE4FF; }
+
+/* ---------- 5. Reviews ---------- */
+.reviews {
+  display: grid;
+  gap: 3.5rem;
+  padding: var(--section) var(--gutter);
+  background: var(--paper-2);
+}
+.quote { margin: 0; }
+.quote blockquote { margin: 0; }
+.quote--hero { position: relative; }
+.quote-mark {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(7rem, 4rem + 12vw, 16rem);
+  line-height: .7;
+  color: var(--cobalt);
+  height: .5em;
+}
+.quote--hero p {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 1rem + 3.4vw, 4rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  font-variation-settings: "opsz" 28;
+  max-width: 24ch;
+}
+.quote figcaption { margin-top: 1.5rem; font-size: .95rem; color: var(--ink-soft); }
+.stars { color: #D9960B; letter-spacing: .12em; margin-right: .5rem; }
+.reviews-side { display: grid; gap: 2rem; align-content: end; }
+.reviews-side .quote p { font-family: var(--serif); font-size: 1.35rem; line-height: 1.4; font-variation-settings: "opsz" 14; }
+.text-link { font-weight: 500; color: var(--cobalt); text-underline-offset: .25em; }
+
+/* ---------- 6. Booking ---------- */
+.book { background: var(--ink); color: #fff; padding-bottom: 3rem; overflow: hidden; }
+
+.marquee { border-block: 1px solid var(--line-light); padding-block: 1rem; overflow: hidden; white-space: nowrap; }
+.marquee-track { display: inline-flex; font-size: clamp(1rem, .8rem + .8vw, 1.4rem); color: #C3CCDB; }
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track { animation: marquee 32s linear infinite; }
+}
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+.mega-cta {
+  display: block;
+  padding: clamp(3rem, 2rem + 6vw, 8rem) var(--gutter) clamp(2rem, 1rem + 4vw, 5rem);
+  text-decoration: none;
+  font-family: var(--serif);
+  font-size: clamp(4rem, 19vw, 20rem);
+  line-height: .86;
+  letter-spacing: -0.05em;
+  font-variation-settings: "opsz" 96;
+}
+.mega-line { display: block; }
+.mega-line--indent { padding-left: .8em; }
+.mega-sub {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: .25em;
+  font-family: var(--sans);
+  font-size: max(.9rem, 0.075em);
+  letter-spacing: .02em;
+  line-height: 1;
+  padding: .9em 1.4em;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  transition: background-color .3s, color .3s;
+}
+.mega-cta:hover { color: var(--glow); }
+.mega-cta:hover .mega-sub { background: var(--glow); color: var(--ink); border-color: var(--glow); }
+
+.book-grid { padding-inline: var(--gutter); }
+.details { margin: 0; display: grid; gap: 1.5rem; }
+.details div { padding-top: 1rem; border-top: 1px solid var(--line-light); }
+.details dt { font-size: .9rem; color: #95A2B8; margin-bottom: .25rem; }
+.details dd { margin: 0; font-size: 1.15rem; line-height: 1.5; }
+.details a { text-underline-offset: .25em; }
+.details a:hover { color: var(--glow); }
+.placeholder { color: var(--glow); border-bottom: 1px dashed currentColor; }
+
+.site-footer {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;
+  padding: 1.5rem var(--gutter) calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  background: var(--ink); color: #95A2B8; font-size: .9rem;
+  border-top: 1px solid var(--line-light);
+}
+.site-footer a:hover { color: #fff; }
+
+/* =========================================================
+   Larger screens
+   ========================================================= */
+@media (min-width: 48rem) {
+  .hero-foot { grid-template-columns: 1fr auto auto; gap: 3rem; }
+  .hero-title { font-size: min(14vw, 23svh, 15rem); }
+  .line--indent { padding-left: .9em; }
+  .js-motion .manifesto { height: 220vh; }
+  .treatments-head { grid-template-columns: 1fr 1fr; align-items: end; }
+  .treatment-list a { grid-template-columns: 1fr minmax(14rem, 22rem); align-items: center; gap: 2rem; padding: 1.6rem .75rem; }
+  .treatment-list a:hover .t-name, .treatment-list a:focus-visible .t-name { transform: translateX(.6rem); }
+  .details { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 64rem) {
+  .site-nav { display: flex; }
+  .reviews { grid-template-columns: 1.6fr 1fr; gap: 6rem; }
+
+  /* Horizontal visit, enabled only when JS adds .js-motion */
+  .js-motion .visit-sticky {
+    position: sticky; top: 0;
+    height: 100svh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding-block: 5rem 3rem;
+    overflow: hidden;
+  }
+  .js-motion .visit-progress { display: block; }
+  .js-motion .visit-head { margin-bottom: clamp(2rem, 5vh, 4rem); }
+  .js-motion .visit-track {
+    display: flex; gap: 6vw; width: max-content;
+    will-change: transform;
+  }
+  .js-motion .panel {
+    width: min(72vw, 64rem);
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 4vw;
+  }
+  .js-motion .panel-media { height: min(52svh, 30rem); width: auto; max-width: none; }
+  .js-motion .panel-media--wide { height: min(42svh, 22rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation: none !important; }
+}
